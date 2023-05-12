@@ -21,7 +21,12 @@
 			Telegram.WebApp.setBackgroundColor(Telegram.WebApp.bg_color);
 			let email = document.querySelector("#email").value;
 			document.querySelector("#submit").addEventListener("click", ()=>{
-				Telegram.WebApp.sendData(email);	
+				Telegram.WebApp.sendData({
+					web_app_data : {
+						data : email,
+						button_text : "service_provider"
+					}
+				});	
 			})
 			document.querySelector("#user-info").append("Platform : " + Telegram.WebApp.platform + "<br>");
 			document.querySelector("#user-info").append("Color Scheme : " + Telegram.WebApp.colorScheme + "<br>");
