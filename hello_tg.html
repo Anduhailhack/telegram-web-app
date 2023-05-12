@@ -9,13 +9,10 @@
 			
 		</div>
 		<script type="application/javascript">
-			document.onload = function () {
 				Telegram.WebApp.ready();
 				Telegram.WebApp.setBackground(Telegram.WebApp.bg_color);
 				document.querySelector("#user-info").append("Platform : " + Telegram.WebApp.platform + "<br>");
 				document.querySelector("#user-info").append("Color Scheme : " + Telegram.WebApp.colorScheme + "<br>");
-			})
-			
 		</script>
 	</body>
 </html>
