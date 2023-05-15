@@ -8,7 +8,27 @@ const TestApp = function () {
 
 TestApp.prototype.sendData = function (text) {
 	// Telegram.WebApp.showAlert("\n" + this.initDataUnsafe.query_id);
-	Telegram.WebApp.sendData(text);
+	// Telegram.WebApp.sendData(text);
+	const authData = this.initData || "";
+	fetch("https://efad-213-55-90-5.ngrok-free.app", {
+		method: "POST",
+		body: JSON.stringify(
+			Object.assign(text, {
+				_auth: authData,
+				method: method,
+			})
+		),
+		credentials: "include",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then(function (response) {
+			console.log(response.json());
+		})
+		.catch(function (error) {
+			onCallback && onCallback({ error: "Server error" });
+		});
 };
 
 function setThemeClass() {
