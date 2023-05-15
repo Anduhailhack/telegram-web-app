@@ -21,6 +21,7 @@ TestApp.prototype.sendData = function (method, text) {
 		credentials: "include",
 		headers: {
 			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*" 
 		},
 	})
 		.then(function (response) {
