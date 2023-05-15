@@ -6,7 +6,7 @@ const TestApp = function () {
 	Telegram.WebApp.ready();
 };
 
-TestApp.prototype.sendData = function (text) {
+TestApp.prototype.sendData = function (method, text) {
 	// Telegram.WebApp.showAlert("\n" + this.initDataUnsafe.query_id);
 	// Telegram.WebApp.sendData(text);
 	const authData = this.initData || "";
@@ -43,5 +43,5 @@ submitBtn.addEventListener("click", (event) => {
 	let pass = document.getElementById("pass").value;
 	//Telegram.WebApp.showAlert(email + "\n" + pass);
 	const testApp = new TestApp();
-	testApp.sendData(email + pass);
+	testApp.sendData("sendMessage", email + pass);
 });
